@@ -2,12 +2,12 @@ package com.bookmaking.project_for_al.model.data.inputdata.types;
 
 import com.bookmaking.project_for_al.model.data.inputdata.other.Inputable;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
+@EqualsAndHashCode
 @Builder
 @Getter
-@ToString
 public class InputResult implements Inputable {
 
     //Representation of nested JSON object

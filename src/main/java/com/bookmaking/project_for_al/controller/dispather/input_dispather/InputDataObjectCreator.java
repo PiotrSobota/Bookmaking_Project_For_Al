@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public abstract class InputDataObjectCreator {
 
     // Creates InputData which store nested InputBet or InputResult Object
-    public static InputData createInputData(JSONObject jsonObject, Inputable inputBetOrResult, DataType inputDataType) {
+    public static InputData createInputData(Inputable inputBetOrResult, DataType inputDataType) {
         return InputData.builder()
                 .inputObject(inputBetOrResult)
                 .inputType(inputDataType.getDataTypeDescription())
