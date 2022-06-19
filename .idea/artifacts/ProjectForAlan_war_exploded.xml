@@ -14,18 +14,9 @@
           <element id="module-output" name="ProjectForAlan" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: javax.json.bind:javax.json.bind-api:1.0" />
-          <element id="library" level="project" name="Maven: org.eclipse:yasson:1.0" />
-          <element id="library" level="project" name="Maven: javax.json:javax.json-api:1.1" />
-          <element id="library" level="project" name="Maven: javax.enterprise:cdi-api:2.0" />
-          <element id="library" level="project" name="Maven: javax.el:javax.el-api:3.0.0" />
-          <element id="library" level="project" name="Maven: javax.interceptor:javax.interceptor-api:1.2" />
-          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
-          <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.1" />
           <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
           <element id="library" level="project" name="Maven: junit:junit:4.10" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
-          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">
