@@ -37,7 +37,6 @@ public abstract class InputDataDispatcher {
     //This method check type of json object, convert to correct type, and save java object in InputDataContainer
     private static void dispatch(String jsonBasedString) {
 
-
         JSONObject jsonObject;
         JSONObject nestedInputDataObject;
         InputData inputData;
@@ -47,7 +46,7 @@ public abstract class InputDataDispatcher {
 
             jsonObject = parseJsonBasedStringToJsonObject(jsonBasedString, JSON_PARSER);
 
-            if (checkIfJSONObjectIsInType(jsonObject, InputKeysNames.TYPE, DataType.BET)) {
+            if (checkIfJSONObjectIsInType(jsonObject, DataType.BET)) {
 
                 nestedInputDataObject = getJSONObjectFromOtherJSONObjBasedOnKeyName(jsonObject, InputKeysNames.BET);
 
@@ -55,7 +54,7 @@ public abstract class InputDataDispatcher {
                 inputData = InputDataObjectCreator.createInputData(jsonObject, inputBet, DataType.BET);
 
                 InputDataContainer.addObjectToContainer(inputData);
-            } else if (checkIfJSONObjectIsInType(jsonObject, InputKeysNames.TYPE, DataType.RESULT)) {
+            } else if (checkIfJSONObjectIsInType(jsonObject, DataType.RESULT)) {
 
                 nestedInputDataObject = getJSONObjectFromOtherJSONObjBasedOnKeyName(jsonObject, InputKeysNames.RESULT);
 
@@ -63,8 +62,6 @@ public abstract class InputDataDispatcher {
                 inputData = InputDataObjectCreator.createInputData(jsonObject, inputResult, DataType.RESULT);
                 InputDataContainer.addObjectToContainer(inputData);
             } else throw new IllegalArgumentException();
-
-
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
@@ -84,11 +81,10 @@ public abstract class InputDataDispatcher {
     }
 
     //Method to check type of object. For conditional statement in "dispatch" method
-    private static boolean checkIfJSONObjectIsInType(JSONObject jsonObject, InputKeysNames inputType, DataType requiredType) {
-        boolean isJsonObjectInType = jsonObject
-                .get(inputType.getInputKeyName())
+    private static boolean checkIfJSONObjectIsInType(JSONObject jsonObject, DataType requiredType) {
+        return jsonObject
+                .get(InputKeysNames.TYPE.getInputKeyName())
                 .equals(requiredType.getDataTypeDescription());
-        return isJsonObjectInType;
     }
 
 }
