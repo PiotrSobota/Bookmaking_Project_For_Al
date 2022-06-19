@@ -5,8 +5,7 @@ import java.util.stream.Stream;
 public abstract class ConsolePrinter {
 
     //Just print input string to console. Created to replace "sout" method in code.
-    public static void printString(String string)
-    {
+    public static void printString(String string) {
         System.out.println(string);
     }
 

@@ -14,8 +14,7 @@ public abstract class InputDataContainer {
 
     private static LinkedList<InputData> inputDataList = new LinkedList<>();
 
-    public static void addObjectToContainer(InputData inputData)
-    {
+    public static void addObjectToContainer(InputData inputData) {
         inputDataList.add(inputData);
     }
 

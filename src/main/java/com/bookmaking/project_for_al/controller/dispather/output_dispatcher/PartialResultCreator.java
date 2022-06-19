@@ -38,13 +38,19 @@ public abstract class PartialResultCreator {
 
         switch (inputBetOutcome) {
             case HOME_TEAM_WIN:
-                homeTeamWin = subtractionResultOfStakeAndProduct; draw = stake; visitingTeamWin = stake;
+                homeTeamWin = subtractionResultOfStakeAndProduct;
+                draw = stake;
+                visitingTeamWin = stake;
                 break;
             case DRAW:
-                draw = subtractionResultOfStakeAndProduct; homeTeamWin = stake; visitingTeamWin = stake;
+                draw = subtractionResultOfStakeAndProduct;
+                homeTeamWin = stake;
+                visitingTeamWin = stake;
                 break;
             case VISITING_TEAM_WIN:
-                visitingTeamWin = subtractionResultOfStakeAndProduct; homeTeamWin = stake; draw = stake;
+                visitingTeamWin = subtractionResultOfStakeAndProduct;
+                homeTeamWin = stake;
+                draw = stake;
                 break;
         }
         return new PartialResult(homeTeamWin, draw, visitingTeamWin, inputBet.getFixture());
