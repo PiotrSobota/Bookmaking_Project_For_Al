@@ -1,12 +1,14 @@
 package com.bookmaking.project_for_al.model.data.inputdata.types;
 
 import com.bookmaking.project_for_al.model.data.inputdata.other.Inputable;
-import lombok.Builder;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@AllArgsConstructor
 @Builder
+@Getter
+@Setter
 @ToString
 public class InputBet implements Inputable {
 

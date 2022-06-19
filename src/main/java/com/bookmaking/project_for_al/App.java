@@ -9,7 +9,6 @@ public class App {
 
         //Run aplication using main - it will get json from file
         AppController.run();
-        System.out.println(InputDataContainer.getInputDataList().toString());
 
     }
 

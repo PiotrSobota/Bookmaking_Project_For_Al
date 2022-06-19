@@ -1,7 +1,7 @@
-package com.bookmaking.project_for_al.controller.dispather;
+package com.bookmaking.project_for_al.controller.dispather.input_dispather;
 
-import com.bookmaking.project_for_al.model.data.DataType;
-import com.bookmaking.project_for_al.model.data.InputKeysNames;
+import com.bookmaking.project_for_al.model.data.enums.DataType;
+import com.bookmaking.project_for_al.model.data.enums.InputKeysNames;
 import com.bookmaking.project_for_al.model.data.inputdata.other.Inputable;
 import com.bookmaking.project_for_al.model.data.inputdata.types.InputBet;
 import com.bookmaking.project_for_al.model.data.inputdata.types.InputData;
@@ -25,7 +25,7 @@ public abstract class InputDataObjectCreator {
     public static InputResult createInputResult(JSONObject jsonObject) {
         InputResult inputResult = InputResult.builder()
                 .fixture(getStringValueFromJSONObject(jsonObject, InputKeysNames.FIXTURE))
-                .result(getStringValueFromJSONObject(jsonObject, InputKeysNames.RESULT).charAt(0))
+                .result(getStringValueFromJSONObject(jsonObject, InputKeysNames.RESULT))
                 .build();
         return inputResult;
     }
