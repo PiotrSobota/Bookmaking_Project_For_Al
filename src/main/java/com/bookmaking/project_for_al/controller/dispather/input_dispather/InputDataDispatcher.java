@@ -1,7 +1,7 @@
-package com.bookmaking.project_for_al.controller.dispather;
+package com.bookmaking.project_for_al.controller.dispather.input_dispather;
 
-import com.bookmaking.project_for_al.model.data.DataType;
-import com.bookmaking.project_for_al.model.data.InputKeysNames;
+import com.bookmaking.project_for_al.model.data.enums.DataType;
+import com.bookmaking.project_for_al.model.data.enums.InputKeysNames;
 import com.bookmaking.project_for_al.model.data.inputdata.types.InputBet;
 import com.bookmaking.project_for_al.model.data.inputdata.types.InputData;
 import com.bookmaking.project_for_al.model.data.inputdata.other.InputDataContainer;
@@ -11,7 +11,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 public abstract class InputDataDispatcher {
@@ -62,14 +61,13 @@ public abstract class InputDataDispatcher {
 
                 InputResult inputResult = InputDataObjectCreator.createInputResult(nestedInputDataObject);
                 inputData = InputDataObjectCreator.createInputData(jsonObject, inputResult, DataType.RESULT);
+                InputDataContainer.addObjectToContainer(inputData);
             } else throw new IllegalArgumentException();
 
-            InputDataContainer.addObjectToContainer(inputData);
 
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-
 
     }
 
