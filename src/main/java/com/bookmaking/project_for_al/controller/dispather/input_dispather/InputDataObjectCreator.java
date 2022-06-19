@@ -13,29 +13,26 @@ import java.math.BigDecimal;
 public abstract class InputDataObjectCreator {
 
     public static InputBet createInputBet(JSONObject jsonObject) {
-        InputBet inputBet = InputBet.builder()
+        return InputBet.builder()
                 .fixture(getStringValueFromJSONObject(jsonObject, InputKeysNames.FIXTURE))
                 .outcome(getStringValueFromJSONObject(jsonObject, InputKeysNames.OUTCOME))
                 .stake(new BigDecimal(getStringValueFromJSONObject(jsonObject, InputKeysNames.STAKE)))
                 .odds(Double.parseDouble(getStringValueFromJSONObject(jsonObject, InputKeysNames.ODDS)))
                 .build();
-        return inputBet;
     }
 
     public static InputResult createInputResult(JSONObject jsonObject) {
-        InputResult inputResult = InputResult.builder()
+        return InputResult.builder()
                 .fixture(getStringValueFromJSONObject(jsonObject, InputKeysNames.FIXTURE))
                 .result(getStringValueFromJSONObject(jsonObject, InputKeysNames.RESULT))
                 .build();
-        return inputResult;
     }
 
     public static InputData createInputData(JSONObject jsonObject, Inputable inputBetOrResult, DataType inputDataType) {
-        InputData inputData = InputData.builder()
+        return InputData.builder()
                 .inputObject(inputBetOrResult)
                 .inputType(inputDataType.getDataTypeDescription())
                 .build();
-        return inputData;
     }
 
     private static String getStringValueFromJSONObject(JSONObject jsonObject, InputKeysNames inputKeysNames) {

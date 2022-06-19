@@ -24,8 +24,7 @@ public abstract class OutputDataDispatcher {
     private static final LinkedList<String> outputMessages = new LinkedList<>();
 
     public static Stream<String> getOutputMessagesStream() {
-        InputDataContainer.getInputDataList()
-                .forEach(OutputDataDispatcher::dispose);
+        InputDataContainer.getInputDataList().forEach(OutputDataDispatcher::dispose);
         return outputMessages.stream();
     }
 
@@ -40,12 +39,13 @@ public abstract class OutputDataDispatcher {
                 outputMessages.add(newPartialResult.toString());
             }
 
-        } else if (checkIfInputDataIsInType(inputData, DataType.RESULT))
-        {
+        } else if (checkIfInputDataIsInType(inputData, DataType.RESULT)) {
             InputResult result = (InputResult) inputData.getInputObject();
-            completedMatches.add(result.getFixture());
-            OverallBalance overallBalanceForSelectedFixtureName = updateOverallBalanceForSelectedFixture(result);
-            Optional.ofNullable(overallBalanceForSelectedFixtureName).ifPresent(OutputDataDispatcher::addOverallBalanceToOutput);
+            if (!completedMatches.contains(result.getFixture())) {
+                completedMatches.add(result.getFixture());
+                OverallBalance overallBalanceForSelectedFixtureName = updateOverallBalanceForSelectedFixture(result);
+                Optional.ofNullable(overallBalanceForSelectedFixtureName).ifPresent(OutputDataDispatcher::addOverallBalanceToOutput);
+            }
         }
     }
 
@@ -58,15 +58,12 @@ public abstract class OutputDataDispatcher {
             BigDecimal finalResultBasedOnOutcome = partialResult.getFinalResultBasedOnOutcome(result.getResult());
             companyProfit = companyProfit.add(finalResultBasedOnOutcome);
             return new OverallBalance(companyProfit, searchedFixture, finalResultBasedOnOutcome);
-        }
-        catch (NullPointerException e)
-        {
+        } catch (NullPointerException e) {
             return null;
         }
     }
 
-    private static void addOverallBalanceToOutput(OverallBalance overallBalanceForSelectedFixtureName)
-    {
+    private static void addOverallBalanceToOutput(OverallBalance overallBalanceForSelectedFixtureName) {
         outputMessages.add(overallBalanceForSelectedFixtureName.toString());
     }
 
@@ -75,8 +72,7 @@ public abstract class OutputDataDispatcher {
     }
 
     private static boolean checkIfInputDataIsInType(InputData inputData, DataType requiredType) {
-        return inputData.getInputType()
-                .equals(requiredType.getDataTypeDescription());
+        return inputData.getInputType().equals(requiredType.getDataTypeDescription());
     }
 
 }
