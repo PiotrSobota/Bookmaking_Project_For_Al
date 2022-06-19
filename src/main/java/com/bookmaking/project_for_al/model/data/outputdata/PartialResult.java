@@ -17,19 +17,22 @@ public class PartialResult {
     private BigDecimal resultIfVisitingTeamWin;
     private String fixture;
 
-    public BigDecimal getFinalResultBasedOnOutcome(String outcome)
-    {
+    public BigDecimal getFinalResultBasedOnOutcome(String outcome) {
         PossibleResults finalResultId = PossibleResults.getPossibleResultBasedOnStringValue(outcome);
         BigDecimal finalResult;
 
         switch (finalResultId) {
-            case HOME_TEAM_WIN: finalResult = resultIfHomeTeamWin;
+            case HOME_TEAM_WIN:
+                finalResult = resultIfHomeTeamWin;
                 break;
-            case DRAW: finalResult = resultIfDraw;
+            case DRAW:
+                finalResult = resultIfDraw;
                 break;
-            case VISITING_TEAM_WIN: finalResult = resultIfVisitingTeamWin;
+            case VISITING_TEAM_WIN:
+                finalResult = resultIfVisitingTeamWin;
                 break;
-            default: finalResult = null;
+            default:
+                finalResult = null;
         }
         return finalResult;
     }
