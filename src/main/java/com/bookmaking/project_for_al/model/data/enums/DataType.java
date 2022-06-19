@@ -7,6 +7,8 @@ import lombok.Getter;
 @Getter
 public enum DataType {
 
+    //Data types of input value - "type" key in JSON
+
     BET("BET"), RESULT("RESULT");
 
     private final String dataTypeDescription;

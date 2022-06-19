@@ -13,12 +13,12 @@ public abstract class StreamOfInputDataSupplier {
     //Input file location
     private static final String INPUT_FILE_NAME = "src/main/resources/messages.json";
 
-    //Master method in this class. Should stay public. Return next lines from input file as Stream.
+    //Master method in this class. Should stay public. Returns next lines from input file as Stream.
     public static Stream<String> supply() throws FileNotFoundException {
         return createBufferReaderForFile().lines();
     }
 
-    //Create bufferReader from input JSON file
+    //Creates bufferReader from input JSON file
     private static BufferedReader createBufferReaderForFile() throws FileNotFoundException {
         FileReader fileReader = new FileReader(INPUT_FILE_NAME);
         return new BufferedReader(fileReader);

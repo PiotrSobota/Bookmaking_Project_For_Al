@@ -12,6 +12,14 @@ import java.math.BigDecimal;
 
 public abstract class InputDataObjectCreator {
 
+    // Creates InputData which store nested InputBet or InputResult Object
+    public static InputData createInputData(JSONObject jsonObject, Inputable inputBetOrResult, DataType inputDataType) {
+        return InputData.builder()
+                .inputObject(inputBetOrResult)
+                .inputType(inputDataType.getDataTypeDescription())
+                .build();
+    }
+
     public static InputBet createInputBet(JSONObject jsonObject) {
         return InputBet.builder()
                 .fixture(getStringValueFromJSONObject(jsonObject, InputKeysNames.FIXTURE))
@@ -28,12 +36,8 @@ public abstract class InputDataObjectCreator {
                 .build();
     }
 
-    public static InputData createInputData(JSONObject jsonObject, Inputable inputBetOrResult, DataType inputDataType) {
-        return InputData.builder()
-                .inputObject(inputBetOrResult)
-                .inputType(inputDataType.getDataTypeDescription())
-                .build();
-    }
+    /*Gets string from JSON object to pass it to InputResult or InputBet variables using Builders in those classes.
+    Need key name of value (in JSON) which you need to extract*/
 
     private static String getStringValueFromJSONObject(JSONObject jsonObject, InputKeysNames inputKeysNames) {
         return jsonObject.get(inputKeysNames.getInputKeyName()).toString();

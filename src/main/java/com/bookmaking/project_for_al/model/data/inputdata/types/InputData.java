@@ -11,6 +11,6 @@ import lombok.ToString;
 public class InputData {
 
     private String inputType;
-    private Inputable inputObject; //Can store InputResult or InputBet object
+    private Inputable inputObject; //Can store InputResult or InputBet object. Nested object in JSON file.
 
 }
