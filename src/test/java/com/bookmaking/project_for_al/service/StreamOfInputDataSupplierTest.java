@@ -12,6 +12,7 @@ class StreamOfInputDataSupplierTest {
 
     @Test
     void shouldSupplyMethodThrowFileNotFoundExceptionForFakeLocation() {
+
         //given, when, then
 
         Assertions.assertThrows(FileNotFoundException.class,
@@ -20,8 +21,7 @@ class StreamOfInputDataSupplierTest {
     }
 
     @Test
-    void shouldSupplyMethodNotThrowNothingForCorrectFileLocation()
-    {
+    void shouldSupplyMethodNotThrowNothingForCorrectFileLocation() {
 
         //given
         String correctFileLocation = "src/main/resources/messages.json";

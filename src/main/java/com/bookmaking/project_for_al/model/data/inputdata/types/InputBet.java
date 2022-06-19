@@ -5,9 +5,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
+@EqualsAndHashCode
 @Builder
 @Getter
-@ToString
 public class InputBet implements Inputable {
 
     //Representation of nested JSON object

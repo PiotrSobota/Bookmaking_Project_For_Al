@@ -3,13 +3,11 @@ package com.bookmaking.project_for_al.model.data.inputdata.other;
 import com.bookmaking.project_for_al.model.data.inputdata.types.InputData;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.LinkedList;
 
 @Getter
 @Setter
-@ToString
 public abstract class InputDataContainer {
 
     //This class is container for InputData objects (InputBet and InputResult)

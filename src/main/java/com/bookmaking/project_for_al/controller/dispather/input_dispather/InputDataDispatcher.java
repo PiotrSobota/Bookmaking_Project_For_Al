@@ -52,7 +52,7 @@ public abstract class InputDataDispatcher {
                 nestedInputDataObject = getJSONObjectFromOtherJSONObjBasedOnKeyName(jsonObject, InputKeysNames.BET);
 
                 InputBet inputBet = InputDataObjectCreator.createInputBet(nestedInputDataObject);
-                inputData = InputDataObjectCreator.createInputData(jsonObject, inputBet, DataType.BET);
+                inputData = InputDataObjectCreator.createInputData(inputBet, DataType.BET);
 
                 InputDataContainer.addObjectToContainer(inputData);
             } else if (checkIfJSONObjectIsInType(jsonObject, DataType.RESULT)) {
@@ -60,7 +60,7 @@ public abstract class InputDataDispatcher {
                 nestedInputDataObject = getJSONObjectFromOtherJSONObjBasedOnKeyName(jsonObject, InputKeysNames.RESULT);
 
                 InputResult inputResult = InputDataObjectCreator.createInputResult(nestedInputDataObject);
-                inputData = InputDataObjectCreator.createInputData(jsonObject, inputResult, DataType.RESULT);
+                inputData = InputDataObjectCreator.createInputData(inputResult, DataType.RESULT);
                 InputDataContainer.addObjectToContainer(inputData);
             } else throw new IllegalArgumentException();
         } catch (ParseException e) {
