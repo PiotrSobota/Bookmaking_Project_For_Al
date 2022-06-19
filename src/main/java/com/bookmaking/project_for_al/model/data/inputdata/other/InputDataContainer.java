@@ -22,4 +22,5 @@ public abstract class InputDataContainer {
     public static LinkedList<InputData> getInputDataList() {
         return inputDataList;
     }
+
 }

@@ -9,7 +9,6 @@ public class AppController {
 
         InputDataDispatcher.dispose(StreamOfInputDataSupplier.supply());
 
-
     }
 
 }

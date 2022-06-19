@@ -11,7 +11,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 public abstract class InputDataDispatcher {
