@@ -12,6 +12,7 @@ public abstract class PartialResultCreator {
 
     final static BigDecimal INITIAL_VALUE = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
 
+    //Creates
     public static PartialResult createPartialResult(InputBet inputBet, HashMap<String, PartialResult> partialResultMap) {
         PartialResult existingPartialResult;
         String newBetFixtureName = inputBet.getFixture();
@@ -66,6 +67,7 @@ public abstract class PartialResultCreator {
 
         return new PartialResult(correctedHomeTeamWin, correctedDraw, correctedVisitingTeamWin, newPartialResult.getFixture());
     }
+
 
     private static BigDecimal multiplyStakeByOdds(BigDecimal stake, double odds) {
         BigDecimal oddsBigDecimal = BigDecimal.valueOf(odds);

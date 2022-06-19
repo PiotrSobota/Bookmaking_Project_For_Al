@@ -12,6 +12,8 @@ import java.util.LinkedList;
 @ToString
 public abstract class InputDataContainer {
 
+    //This class is container for InputData objects (InputBet and InputResult)
+
     private static LinkedList<InputData> inputDataList = new LinkedList<>();
 
     public static void addObjectToContainer(InputData inputData) {

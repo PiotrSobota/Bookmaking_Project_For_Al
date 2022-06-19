@@ -1,13 +1,13 @@
 package com.bookmaking.project_for_al;
 
-import com.bookmaking.project_for_al.controller.AppController;
+import com.bookmaking.project_for_al.controller.ConsoleAppController;
 
 public class App {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        //Run application using main - it will get json from file
-        AppController.run();
+        //Run console application version using main - it will get json from file
+        ConsoleAppController.run();
 
     }
 

@@ -10,8 +10,8 @@ public abstract class ConsolePrinter {
     }
 
     //Just print input string to console. Created to replace "sout" method based on Stream in code.
-    public void printStream(Stream<String> streamToPrint) {
-        streamToPrint.forEach(System.out::println);
+    public static void printStream(Stream<String> streamToPrint) {
+        streamToPrint.forEach(ConsolePrinter::printString);
     }
 
 }

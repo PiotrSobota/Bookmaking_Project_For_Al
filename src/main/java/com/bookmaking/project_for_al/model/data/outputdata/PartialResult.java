@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @EqualsAndHashCode
 @AllArgsConstructor
@@ -17,6 +18,7 @@ public class PartialResult {
     private BigDecimal resultIfVisitingTeamWin;
     private String fixture;
 
+    //Chooses 1 of 3 possible result based of final real result/outcome
     public BigDecimal getFinalResultBasedOnOutcome(String outcome) {
         PossibleResults finalResultId = PossibleResults.getPossibleResultBasedOnStringValue(outcome);
         BigDecimal finalResult;
@@ -34,9 +36,10 @@ public class PartialResult {
             default:
                 finalResult = null;
         }
-        return finalResult;
+        return finalResult.setScale(2, RoundingMode.HALF_UP);
     }
 
+    //Formatter wasn't used because I think it would be totally illegible.
     @Override
     public String toString() {
 
@@ -46,15 +49,15 @@ public class PartialResult {
         stringBuilder
                 .append(PossibleResults.HOME_TEAM_WIN.getResult())
                 .append(": ")
-                .append(resultIfHomeTeamWin.toString())
+                .append(resultIfHomeTeamWin.setScale(2, RoundingMode.HALF_UP))
                 .append(" ")
                 .append(PossibleResults.DRAW.getResult())
                 .append(": ")
-                .append(resultIfDraw.toString())
+                .append(resultIfDraw.setScale(2, RoundingMode.HALF_UP))
                 .append(" ")
                 .append(PossibleResults.VISITING_TEAM_WIN.getResult())
                 .append(": ")
-                .append(resultIfVisitingTeamWin)
+                .append(resultIfVisitingTeamWin.setScale(2, RoundingMode.HALF_UP))
                 .append(" {fixture name: ")
                 .append(fixture)
                 .append("}");

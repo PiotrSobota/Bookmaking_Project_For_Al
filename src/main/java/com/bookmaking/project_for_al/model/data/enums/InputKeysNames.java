@@ -7,6 +7,8 @@ import lombok.Getter;
 @Getter
 public enum InputKeysNames {
 
+    //All keys of nested object in JSON file
+
     TYPE("type"), BET("bet"), FIXTURE("fixture"),
     OUTCOME("outcome"), STAKE("stake"), ODDS("odds"), RESULT("result");
 

@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.stream.Stream;
 
 public abstract class InputDataDispatcher {
@@ -62,10 +63,9 @@ public abstract class InputDataDispatcher {
                 inputData = InputDataObjectCreator.createInputData(jsonObject, inputResult, DataType.RESULT);
                 InputDataContainer.addObjectToContainer(inputData);
             } else throw new IllegalArgumentException();
-        } catch (ParseException ex) {
-            ex.printStackTrace();
+        } catch (ParseException e) {
+            throw new InputMismatchException();
         }
-
     }
 
     //Just parsing String from input to JsonObject

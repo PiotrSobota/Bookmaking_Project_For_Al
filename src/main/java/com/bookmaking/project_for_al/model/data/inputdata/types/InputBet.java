@@ -5,12 +5,12 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-@AllArgsConstructor
 @Builder
 @Getter
-@Setter
 @ToString
 public class InputBet implements Inputable {
+
+    //Representation of nested JSON object
 
     private String fixture;
     private String outcome;

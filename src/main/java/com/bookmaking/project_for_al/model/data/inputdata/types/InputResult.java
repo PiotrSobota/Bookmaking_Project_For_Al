@@ -10,6 +10,8 @@ import lombok.ToString;
 @ToString
 public class InputResult implements Inputable {
 
+    //Representation of nested JSON object
+
     private String fixture;
     private String result;
 
