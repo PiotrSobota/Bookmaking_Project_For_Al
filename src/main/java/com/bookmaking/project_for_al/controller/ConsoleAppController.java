@@ -3,6 +3,7 @@ package com.bookmaking.project_for_al.controller;
 import com.bookmaking.project_for_al.controller.dispather.input_dispather.InputDataDispatcher;
 import com.bookmaking.project_for_al.controller.dispather.output_dispatcher.OutputDataDispatcher;
 import com.bookmaking.project_for_al.controller.printers.ConsolePrinter;
+import com.bookmaking.project_for_al.model.data.enums.InputFileName;
 import com.bookmaking.project_for_al.service.StreamOfInputDataSupplier;
 
 import java.io.FileNotFoundException;
@@ -14,7 +15,7 @@ public class ConsoleAppController {
 
         try {
             //Reads input JSON, creates objects and send them to InputDataContainer
-            InputDataDispatcher.dispose(StreamOfInputDataSupplier.supply());
+            InputDataDispatcher.dispose(StreamOfInputDataSupplier.supply(InputFileName.INPUT_FILE_NAME.getJsonfileName()));
 
             //Calculates solution and send output to console
             ConsolePrinter.printStream(OutputDataDispatcher.getOutputMessagesStream());

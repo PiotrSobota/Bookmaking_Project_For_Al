@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -25,9 +26,9 @@ public class OverallBalance {
 
         // Format => Overall balance: 10.00 Fixture A - B profit: 10.00
         return formatter.format("Overall balance: %s Fixture %s profit: %s",
-                        overallBalance.toString(),
+                        overallBalance.setScale(2, RoundingMode.HALF_UP),
                         fixture,
-                        profit.toString())
+                        profit.setScale(2, RoundingMode.HALF_UP))
                 .toString();
     }
 
